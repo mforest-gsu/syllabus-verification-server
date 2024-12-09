@@ -22,6 +22,10 @@
     "php": "^8.1",
     "ext-ctype": "*",
     "ext-iconv": "*",
+    "doctrine/dbal": "^4.2",
+    "doctrine/doctrine-bundle": "^2.13",
+    "doctrine/doctrine-migrations-bundle": "^3.3",
+    "doctrine/orm": "^3.3",
     "mjfk23/gadget-console": "^2.0",
     "paragonie/sodium_compat": "^2.1",
     "symfony/console": "6.4.*",
@@ -34,7 +38,8 @@
     "symfony/yaml": "6.4.*"
   },
   "require-dev": {
-    "mjfk23/gadget-code-style": "^1.0"
+    "mjfk23/gadget-code-style": "^1.0",
+    "symfony/maker-bundle": "^1.61"
   },
   "config": {
     "allow-plugins": {
