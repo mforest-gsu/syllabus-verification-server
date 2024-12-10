@@ -65,6 +65,11 @@ final class AccessTokenHandler implements AccessTokenHandlerInterface
      */
     public function decryptJwt(string $jwt): string
     {
+        $jwt = base64_decode($jwt, true);
+        if (!is_string($jwt)) {
+            throw new \RuntimeException();
+        }
+
         $decryptedJwt = sodium_crypto_secretbox_open(
             mb_substr($jwt, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit'),
             mb_substr($jwt, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit'),
