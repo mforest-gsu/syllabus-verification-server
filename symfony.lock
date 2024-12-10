@@ -26,7 +26,13 @@
             "migrations/.gitignore"
         ]
     },
+    "mjfk23/gadget-cache": {
+        "version": "v2.0.0"
+    },
     "mjfk23/gadget-console": {
+        "version": "v2.0.2"
+    },
+    "mjfk23/gadget-http": {
         "version": "v2.0.2"
     },
     "mjfk23/gadget-log": {
@@ -34,6 +40,18 @@
     },
     "mjfk23/gadget-process": {
         "version": "v1.0.2"
+    },
+    "php-http/discovery": {
+        "version": "1.20",
+        "recipe": {
+            "repo": "github.com/mjfk23/symfony-recipes",
+            "branch": "main",
+            "version": "1.19",
+            "ref": "4bf6c646da7ba4a5d6acc49d5f9b9fbdcdeae7b2"
+        },
+        "files": [
+            "config/packages/http_discovery.yaml"
+        ]
     },
     "phpstan/phpstan": {
         "version": "2.0",
