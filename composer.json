@@ -29,6 +29,7 @@
     "firebase/php-jwt": "^6.10",
     "mjfk23/gadget-console": "^2.0",
     "mjfk23/gadget-http": "^2.0",
+    "nelmio/cors-bundle": "^2.5",
     "paragonie/sodium_compat": "^2.1",
     "phpdocumentor/reflection-docblock": "^5.6",
     "phpstan/phpdoc-parser": "^2.0",
