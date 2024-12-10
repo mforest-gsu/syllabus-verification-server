@@ -10,6 +10,7 @@ use Gsu\SyllabusVerification\Entity\CourseSectionLog;
 use Gsu\SyllabusVerification\Entity\FetchCourseSectionsParameters;
 use Gsu\SyllabusVerification\Entity\SelectedCourseSections;
 use Gsu\SyllabusVerification\Repository\CourseSectionRepository;
+use Gsu\SyllabusVerification\Security\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
@@ -19,10 +20,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class CourseSectionController extends AbstractController
 {
-    /**
-     * @param EntityManagerInterface $entityManager
-     * @param CourseSectionRepository $courseSectionRepo
-     */
     public function __construct(
         private EntityManagerInterface $entityManager,
         private CourseSectionRepository $courseSectionRepo
@@ -49,32 +46,24 @@ final class CourseSectionController extends AbstractController
     }
 
 
-    /**
-     * @param SelectedCourseSections $payload
-     * @return JsonResponse
-     */
     #[Route(methods: 'PUT', path: '/courses/verify', format: 'json')]
     public function verifyCourseSections(
         #[MapRequestPayload] SelectedCourseSections $payload
     ): JsonResponse {
         return $this->json($this->setVerifyStatus(
-            '0', // userId
+            $this->getUser()?->getUserIdentifier() ?? throw new \RuntimeException(),
             $payload->selected,
             'Verified'
         ));
     }
 
 
-    /**
-     * @param SelectedCourseSections $payload
-     * @return JsonResponse
-     */
     #[Route(methods: 'PUT', path: '/courses/unverify', format: 'json')]
     public function unverifyCourseSections(
         #[MapRequestPayload] SelectedCourseSections $payload
     ): JsonResponse {
         return $this->json($this->setVerifyStatus(
-            '0', // userId
+            $this->getUser()?->getUserIdentifier() ?? throw new \RuntimeException(),
             $payload->selected,
             'Unverified'
         ));
