@@ -90,16 +90,6 @@ final class AuthController extends AbstractController
     }
 
 
-    /**
-     * @param string $token
-     * @return Response
-     */
-    public function showToken(string $token): Response
-    {
-        return $this->json(json_decode($token, true, 512, JSON_THROW_ON_ERROR));
-    }
-
-
     #[Route(methods: 'GET', path: '/check', format: 'json')]
     public function check(): Response
     {
