@@ -7,7 +7,9 @@ security:
     main:
       lazy: true
       stateless: true
+      access_token:
+        token_handler: Gsu\SyllabusVerification\Security\AccessTokenHandler
 
   access_control:
-    # - { path: ^/admin, roles: ROLE_ADMIN }
-    # - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/courses, roles: ROLE_USER }
+    - { path: ^/filters, roles: ROLE_USER }

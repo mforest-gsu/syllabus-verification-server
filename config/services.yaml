@@ -1,4 +1,13 @@
 parameters:
+  app.secret: "%env(APP_SECRET)%"
+  app.mysqlUri: "%env(APP_MYSQL_URI)%"  
+  azure.tenantId: "%env(AZURE_TENANT_ID)%"
+  azure.clientId: "%env(AZURE_CLIENT_ID)%"
+  azure.jwksUri: "https://login.microsoftonline.com/%azure.tenantId%/discovery/v2.0/keys"
+  azure.authUri: "https://login.microsoftonline.com/%azure.tenantId%/oauth2/v2.0/authorize"
+  app.webUri: "%env(APP_WEB_URI)%"
+  app.apiUri: "%env(APP_API_URI)%"
+  app.oracleUrI: "%env(APP_ORACLE_URI)%"
 
 services:
   _defaults:
@@ -11,3 +20,19 @@ services:
       - "../src/DependencyInjection/"
       - "../src/Entity/"
       - "../src/Kernel.php"
+
+  Firebase\JWT\CachedKeySet:
+    arguments:
+      $jwksUri: "%azure.jwksUri%"
+      $defaultAlg: "RS256"
+
+  Gsu\SyllabusVerification\Security\AccessTokenHandler:
+    arguments:
+      $accessTokenKey: "%app.secret%"
+
+  Gsu\SyllabusVerification\Controller\AuthController:
+    arguments:
+        $authUri: "%azure.authUri%"
+        $clientId: "%azure.clientId%"
+        $webUri: "%app.webUri%"
+        $apiUri: "%app.apiUri%"
