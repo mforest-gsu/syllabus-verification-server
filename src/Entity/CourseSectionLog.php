@@ -11,7 +11,7 @@ use Gsu\SyllabusVerification\Repository\CourseSectionLogRepository;
 #[ORM\Entity(CourseSectionLogRepository::class)]
 #[ORM\Table('CoreImpactsCourseSectionLog')]
 #[ORM\UniqueConstraint('udxCoreImpactsCourseSectionLog_01', ['TermCode', 'CRN', 'LogUser', 'LogTimestamp'])]
-final class CourseSectionLog implements \JsonSerializable
+class CourseSectionLog implements \JsonSerializable
 {
     #region Column Definitions
 

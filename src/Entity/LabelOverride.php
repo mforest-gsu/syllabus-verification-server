@@ -11,7 +11,7 @@ use Gsu\SyllabusVerification\Repository\LabelOverrideRepository;
 #[ORM\Entity(LabelOverrideRepository::class)]
 #[ORM\Table('CoreImpactLabelOverride')]
 #[ORM\UniqueConstraint('udxCoreImpactLabelOverride_01', ['LabelCategory', 'LabelCode'])]
-final class LabelOverride
+class LabelOverride
 {
     #region Column Definitions
 

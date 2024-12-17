@@ -20,7 +20,7 @@ use Gsu\SyllabusVerification\Repository\CourseSectionRepository;
 #[ORM\Index('idxCoreImpactsCourseSection_07', ['VerifyStatus'])]
 #[ORM\Index('idxCoreImpactsCourseSection_08', ['VerifyDate'])]
 #[ORM\Index('idxCoreImpactsCourseSection_09', ['VerifyUser'])]
-final class CourseSection implements \JsonSerializable
+class CourseSection implements \JsonSerializable
 {
     #region Constants
 

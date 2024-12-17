@@ -13,7 +13,7 @@ use Gsu\SyllabusVerification\Repository\CourseTemplateRepository;
 #[ORM\UniqueConstraint('udxCoreImpactsCourseTemplate_01', ['ImpactAreaCode', 'SubjectCode', 'CourseNumber'])]
 #[ORM\Index('idxCoreImpactsCourseTemplate_01', ['ImpactAreaCode'])]
 #[ORM\Index('idxCoreImpactsCourseTemplate_02', ['SubjectCode', 'CourseNumber'])]
-final class CourseTemplate implements \JsonSerializable
+class CourseTemplate implements \JsonSerializable
 {
     #region Column Definitions
 
