@@ -26,7 +26,8 @@ final class BannerRepository
         private string $dbUser = "/",
         private string $dbPass = "",
         private string $dbCharset = "UTF8",
-        private int $dbSessionMode = OCI_CRED_EXT
+        // Default value is OCI_CRED_EXT, but oci not available in web env
+        private int $dbSessionMode = -2147483648
     ) {
     }
 
