@@ -91,7 +91,7 @@ final class CourseSectionController extends AbstractController
             if ($status === 'Verified') {
                 $courseSection
                     ->setVerifyStatus("Verified")
-                    ->setVerifyDate(new \DateTimeImmutable())
+                    ->setVerifyDate(new \DateTime())
                     ->setVerifyUser($userId);
             } elseif ($status === 'Unverified') {
                 $courseSection
@@ -102,7 +102,7 @@ final class CourseSectionController extends AbstractController
 
             $this->entityManager->persist(new CourseSectionLog([
                 ...$courseSection->getValues(),
-                'LogTimestamp' => new \DateTimeImmutable(),
+                'LogTimestamp' => new \DateTime(),
                 'LogUser' => $userId
             ]));
 
